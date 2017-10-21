@@ -1,0 +1,156 @@
+/* 
+    -- POSITION TESTING OF CONTAINER -- 
+    Testing out the relative and absolute positioning scheme
+    margins on the container work as well    
+*/
+
+#container {
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 50px;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* width: calc(500px + 500px + 90px); */
+}
+
+
+/*
+    Grid items and positions
+    */
+
+
+/* All direct descendant divs */
+
+#container>div {
+    border: 1px solid pink;
+    padding: 20px;
+}
+
+
+/* 
+        The first child is the big box, so the remaining divs are handled differently
+        If you had multiple sizes you could declare them individually or with seperate classes
+    */
+
+#container>div:not(:first-child) {
+    width: 200px;
+    height: 200px;
+}
+
+.big-box {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    background: darkgray;
+    padding: 0px;
+    width: 400px;
+    height: 100%;
+}
+
+.sm-box-2 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.sm-box-3 {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
+
+.sm-box-4 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.sm-box-5 {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
+.sm-box-6 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.sm-box-7 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.sm-box-8 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+.sm-box-9 {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+}
+
+@media (max-width: 769px) {
+    .main-content {
+        display: flex;
+        align-items: center;
+    }
+    #container {
+        display: grid;
+        margin: 0 auto;
+        margin-top: 50px;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 1fr 200px;
+        grid-auto-flow: column dense;
+        ;
+        box-sizing: border-box;
+    }
+    #container>div {
+        border: 1px solid pink;
+        justify-items: center;
+    }
+    #container>div:not(:first-child) {
+        width: 200px;
+        height: 200px;
+    }
+    .big-box {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        background: darkgray;
+        width: 400px;
+        height: 400px;
+    }
+    .sm-box-2 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    .sm-box-3 {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    .sm-box-4 {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+    .sm-box-5 {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+    }
+    .sm-box-6 {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+    }
+    .sm-box-7 {
+        grid-column: 2 / 3;
+        grid-row: 5 / 6;
+    }
+    .sm-box-8 {
+        grid-column: 1 / 2;
+        grid-row: 6 / 7;
+    }
+    .sm-box-9 {
+        grid-column: 2 / 3;
+        grid-row: 6 / 7;
+    }
+}
+
+
+/* end of media query */

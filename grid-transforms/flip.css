@@ -1,0 +1,106 @@
+/* --- FLIP TRANSFORM --- */
+/* entire container, keeps perspective */
+
+.flip-container,
+.flip-container-sm {
+    perspective: 1000px;
+}
+
+
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper,
+.flip-container-sm:hover .flipper-sm,
+.flip-container-sm.hover .flipper-sm {
+    transform: rotateY(180deg);
+}
+
+
+/* The container and front and back side match the size of the grid item */
+
+.flip-container,
+.front,
+.back {
+    width: 400px;
+    height: 400px;
+}
+
+.flip-container-sm,
+.front-sm,
+.back-sm {
+    width: 200px;
+    height: 200px;
+}
+
+
+/* flip speed goes here */
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.flipper-sm {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+/* hide back of pane during swap */
+
+.front,
+.back,
+.front-sm,
+.back-sm {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: -1px;
+    padding: 0px;
+    padding-top: 49%;
+    box-sizing: border-box;
+}
+
+
+/* front pane, placed above back */
+
+.front,
+.front-sm {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    background-color: green;
+}
+
+
+/* back, initially hidden pane */
+
+.back,
+.back-sm {
+    transform: rotateY(180deg);
+    background-color: purple;
+}
+
+
+/* Vertical version */
+
+.vertical.flip-container-sm {
+    position: relative;
+}
+
+.vertical .back-sm {
+    transform: rotateX(180deg);
+}
+
+.vertical.flip-container-sm .flipper-sm {
+    transform-origin: 100% 98px;
+    /* half of height */
+}
+
+.vertical.flip-container-sm:hover .flipper-sm {
+    transform: rotateX(-180deg);
+}

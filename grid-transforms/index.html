@@ -1,0 +1,63 @@
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <title>untitled</title>
+  <link rel='stylesheet' href='./styles.css'>
+  <link rel='stylesheet' href='./grid.css'>
+  <link rel='stylesheet' href='./flip.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css'>
+</head>
+
+<body>
+  <nav></nav>
+  <main class='main-content'>
+    <header></header>
+    <article id="container">
+      <div class="big-box flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            box 1
+          </div>
+          <div class="back">
+            still box 1
+          </div>
+        </div>
+      </div>
+      <div class="sm-box-2 flip-container-sm" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper-sm">
+          <div class="front-sm">
+            <!-- front content -->
+            box2
+          </div>
+          <section class="back-sm">
+            <!-- back content -->
+            box2
+          </section>
+        </div>
+      </div>
+      <div class="sm-box-3">box3</div>
+      <div class="sm-box-4">box4</div>
+      <div class="sm-box-5">box5</div>
+      <div class="sm-box-6">box6</div>
+      <div class="sm-box-7">box7</div>
+      <div class="sm-box-8">box8</div>
+      <div class="sm-box-9 flip-container-sm vertical" ontouchstart="this.classList.toggle('hover');">
+          <div class="flipper-sm">
+              <div class="front-sm">
+                <!-- front content -->
+                box9
+              </div>
+              <section class="back-sm">
+                <!-- back content -->
+                box9
+              </section>
+            </div>
+          </div>
+      </div>
+    </article>
+  </main>
+  <footer></footer>
+  <script src='grid-test.js'></script>
+
+</html>
